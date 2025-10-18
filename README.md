@@ -45,3 +45,13 @@ Utilizado no **InvestmentService** para todas as consultas ao banco de dados, co
        |
        v
 [investment.db (SQLite)]  <- (Banco de Dados)
+```
+
+## 👩‍💻 Autoria
+
+Projeto desenvolvido como um exemplo prático de arquitetura em camadas em C#.
+
+Feito por:
+- Julia Amorim     RM99609
+- Lana Leite       RM551143
+- Matheus Cavasini RM97722
