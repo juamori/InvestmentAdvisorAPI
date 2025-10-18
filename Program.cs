@@ -1,0 +1,32 @@
+using Microsoft.EntityFrameworkCore;
+using InvestmentAdvisorAPI.Data;     
+using InvestmentAdvisorAPI.Services;   
+
+var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApiDbContext>(options =>
+    options.UseSqlite(connectionString));
+
+builder.Services.AddScoped<InvestmentService>();
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
